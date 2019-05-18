@@ -1,0 +1,6 @@
+{
+  "/casei-core-console/sbi": {
+    "target": "http://sms-razvoj-03:8080",
+    "secure": "false"
+  }
+}

@@ -1,27 +1,49 @@
-# FirstTask
+# First Challenge for Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+## Intro
 
-## Development server
+This is a coding challange we designed for assess your qualifications as a potential Angular developer. It's important to note that this is by no means a test. We just want to get a sense of how you write code and solve problems.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+We'll give you some requirements that must be done and for which you'll be evaluated, but for the most of time you're free to choose a solution method
 
-## Code scaffolding
+## Getting started/finished
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### Fork
 
-## Build
+To get started, **fork this repository** to your personal account. 
+Basic cli angular project structure is allready provided. You can of course delete everything and start from scratch. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#### Run
 
-## Running unit tests
+```sh
+npm install && npm start
+```
+or if you use `yarn`
+```sh
+yarn install && yarn start
+```
+This will start application on `http://localhost:4200/` with configured proxy rule (proxy.conf.json) for github API.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Code
+As best you can.
 
-## Running end-to-end tests
+#### Get back with PR
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Despite not having a time limit, we recommend that you don't spend more than **8 to 10 hours** working on this challenge.
 
-## Further help
+## What does it involve?
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This challange involves working with the **GitHub API** to create a SPA using Angular, that reads specific parts of API and displays the data in an organized way.
+
+> **GitHub API:** [https://developer.github.com/v3](https://developer.github.com/v3)
+
+[Issue Timeline](images/issue_timeline.png)
+
+curl -H "Authorization: token {token}" https://api.github.com/repos/bulbtech/job-application-task-1/issues
+
+
+https://developer.github.com/v3/issues/timeline/#list-events-for-an-issue
+
+curl -H "Accept: application/vnd.github.mockingbird-preview"  https://api.github.com/repos/bulbtech/job-application-task-1/issues/1/timeline
+
+https://api.github.com/users/bulbtech
