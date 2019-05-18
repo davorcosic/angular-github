@@ -2,7 +2,7 @@
 
 ## Intro
 
-This is a coding challange we designed for assess your qualifications as a potential Angular developer. It's important to note that this is by no means a test. We just want to get a sense of how you write code and solve problems.
+This is a coding challange we designed for assess your qualifications as a potential Angular developer at Bulbtech. It's important to note that this is by no means a test. We just want to get a sense of how you write code and solve problems.
 
 We'll give you some requirements that must be done and for which you'll be evaluated, but for the most of time you're free to choose a solution method
 
@@ -11,7 +11,7 @@ We'll give you some requirements that must be done and for which you'll be evalu
 #### Fork
 
 To get started, **fork this repository** to your personal account. 
-Basic cli angular project structure is allready provided. You can of course delete everything and start from scratch. 
+Basic cli angular project structure is already provided. You can of course delete everything and start from scratch. 
 
 #### Run
 
@@ -26,6 +26,7 @@ This will start application on `http://localhost:4200/` with configured proxy ru
 
 #### Code
 As best you can.
+Keep the commit history - don't squash.
 
 #### Get back with PR
 
@@ -37,9 +38,10 @@ This challange involves working with the **GitHub API** to create a SPA using An
 
 > **GitHub API:** [https://developer.github.com/v3](https://developer.github.com/v3)
 
-[Issue Timeline](images/issue_timeline.png)
+![Issue Timeline](images/issue_timeline.png?raw=true)
 
 curl -H "Authorization: token {token}" https://api.github.com/repos/bulbtech/job-application-task-1/issues
+
 
 
 https://developer.github.com/v3/issues/timeline/#list-events-for-an-issue
