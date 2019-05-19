@@ -46,11 +46,15 @@ This challange involves working with the **GitHub API** to create a SPA using An
 
 > **GitHub API:** [https://developer.github.com/v3](https://developer.github.com/v3)
 
-**NOTE:** all API calls must be done with _Authorization_ header for example:
+**NOTE:** all subsequent API calls must be done with _Authorization_ header for example:
 ```
-curl -H "Authorization: token {provided_token}" https://api.github.com/repos/bulbtech/job-application-task-1
+curl -H "Authorization: token {generated_token}" https://api.github.com/repos/bulbtech/job-application-task-1
 ```
-with the token which will be provided to you upon starting the challenge.
+with the **GitHub Personal access token** which you can generate through your github settings:
+```
+Settings -> Developers settings -> Personal access tokens -> Generate new token
+```
+Personal access token must be provided through **angular environment variables**.
 
 Your main goal is to build SPA which will have:
 
@@ -81,6 +85,7 @@ specifically you will use:
 curl -H "Accept: application/vnd.github.mockingbird-preview" https://api.github.com/repos/bulbtech/job-application-task-1/issues/{issue_id}/timeline
 ```
 
+
 Timeline is a list of events (assigned, commented, labeled ...) with overlapping set of properties.
 
 - Each event is defined by it's definition:
@@ -92,6 +97,9 @@ Timeline is a list of events (assigned, commented, labeled ...) with overlapping
 - Provide a feature for external/additional registration of event definitions by implementing Angular _multi providers feature_ and _Injection tokens_. 
 - All 'resources (components, services, ...)' of Issue Timeline View must be contained in specific NgModule. 
 This module will have a functionality for excluding events from view at runtime, implemenented through static **forFeature** method. This method will have an optional input `excludeEventsFromView: Array<EventName>` where `EventName` is preferably strongly typed. Provided event name will exclude this event type from the list of events.
+
+You can use this issue as a guidance:
+>[https://github.com/bulbtech/job-application-task-1/issues/1](https://github.com/bulbtech/job-application-task-1/issues/1)
 #### Additional expectations
 
 - provide a way to navigate between two views through:
