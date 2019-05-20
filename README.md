@@ -2,7 +2,7 @@
 
 ## Intro
 
-This is a coding challange we designed for assess your qualifications as a potential Angular developer at Bulbtech. It's important to note that this is by no means a test. We just want to get a sense of how you write code and solve problems.
+This is a coding challange we designed to assess your qualifications as a potential Angular developer at Bulbtech. It's important to note that this is by no means a test. We just want to get a sense of how you write code and solve problems.
 
 We'll give you some requirements that must be done and for which you'll be evaluated, but for the most of time you're free to choose a solution method
 
@@ -36,9 +36,9 @@ for usage in your services.
 As best you can.
 Keep the commit history - don't squash.
 
-#### Get back with PR
+#### Submit PR
 
-Despite not having a time limit, we recommend that you don't spend more than **10 to 12 hours** working on this challenge.
+Despite not having a time limit, we recommend that you come back to us within **two days**.
 
 ## What are you going to do?
 
