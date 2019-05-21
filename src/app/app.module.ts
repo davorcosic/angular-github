@@ -9,10 +9,11 @@ import { IssueListViewComponent } from './issue-list/issue-list-view/issue-list-
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { IssueListService } from './issue-list/issue-list.service';
 import { SharedModule } from './shared/shared.module';
+import { TimelineViewModule } from './timeline-view/timeline-view.module';
 
 @NgModule({
   declarations: [AppComponent, IssueListViewComponent, PageNotFoundComponent],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule],
+  imports: [BrowserModule, HttpClientModule, TimelineViewModule, AppRoutingModule, SharedModule],
   providers: [httpInterceptorProviders, IssueListService],
   bootstrap: [AppComponent]
 })

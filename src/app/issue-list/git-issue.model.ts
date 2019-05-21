@@ -1,5 +1,5 @@
 export interface GitIssue {
-  id: number;
+  number: number;
   title: string;
   created_at: string;
   user: GitIssueUser;

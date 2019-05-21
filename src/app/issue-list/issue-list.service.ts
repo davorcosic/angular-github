@@ -18,7 +18,7 @@ export class IssueListService {
 
   private mapToIssueListViewItems(gitIssues: GitIssue[]): IssueListView[] {
     return Array.from(gitIssues, (gitIssue: GitIssue) => {
-      return { id: gitIssue.id, title: gitIssue.title, createdAt: new Date(gitIssue.created_at), author: gitIssue.user.login };
+      return { id: gitIssue.number, title: gitIssue.title, createdAt: new Date(gitIssue.created_at), author: gitIssue.user.login };
     });
   }
 }
