@@ -1,3 +1,7 @@
-<p>
-  event-labeled works!
-</p>
+<app-timeline-item iconClass="fa-tag"
+                   [eventProperties]="eventProperties">
+  <span> added the </span>
+  <span class="label-value"
+        [style.background-color]="'#' + eventProperties.label.color">{{ eventProperties.label.name }}</span>
+  <span> label </span>
+</app-timeline-item>

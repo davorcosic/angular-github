@@ -1,7 +1,7 @@
-<ng-container *ngFor="let issueEvent of issueEvents">
-  <div>Event name: {{ issueEvent.eventName }}</div>
-  <ng-container *ngComponentOutlet="issueEvent.component"></ng-container>
-  <br>
+<ng-container *ngIf="issueEvents">
+  <ng-container *ngFor="let issueEvent of issueEvents">
+    <ng-container
+                  *ngComponentOutlet="issueEvent.component; injector: createEventPropertiesInjector(issueEvent.properties)">
+    </ng-container>
+  </ng-container>
 </ng-container>
-
-Timeline works!

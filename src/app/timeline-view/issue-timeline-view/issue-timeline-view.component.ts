@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IssueTimelineService } from '../issue-timeline.service';
 import { AbstractEvent } from '../event/model/abstract-event.model';
+import { EventProperties } from '../event/model/event-properties.model';
 
 @Component({
   selector: 'app-issue-timeline-view',
@@ -12,13 +13,20 @@ import { AbstractEvent } from '../event/model/abstract-event.model';
 export class IssueTimelineViewComponent implements OnInit {
   issueEvents: AbstractEvent[];
 
-  constructor(private route: ActivatedRoute, private issueTimelineService: IssueTimelineService) {}
+  constructor(private route: ActivatedRoute, private issueTimelineService: IssueTimelineService, private injector: Injector) {}
 
   ngOnInit() {
-    this.route.queryParamMap.subscribe(queryParamMap => this.getIssueTimeline(+queryParamMap.get('issue_id')));
+    this.route.queryParamMap.subscribe(queryParamMap => this.getIssueEvents(+queryParamMap.get('issue_id')));
   }
 
-  private getIssueTimeline(issueId: number) {
+  createEventPropertiesInjector(eventProperties: EventProperties): Injector {
+    return Injector.create({
+      providers: [{ provide: EventProperties, useValue: eventProperties }],
+      parent: this.injector
+    });
+  }
+
+  private getIssueEvents(issueId: number) {
     this.issueTimelineService.get(issueId).subscribe(issueEvents => {
       console.log(issueEvents);
       this.issueEvents = issueEvents;

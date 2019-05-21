@@ -8,11 +8,12 @@ import { EventCommentedComponent } from './event/event-commented/event-commented
 import { EventLabeledComponent } from './event/event-labeled/event-labeled.component';
 import { EventDefaultComponent } from './event/event-default/event-default.component';
 import { eventProviders } from './event/event-providers';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
+  imports: [CommonModule, TimelineViewRoutingModule, SharedModule],
   declarations: [IssueTimelineViewComponent, EventCommentedComponent, EventLabeledComponent, EventDefaultComponent],
   entryComponents: [EventCommentedComponent, EventLabeledComponent, EventDefaultComponent],
-  providers: [eventProviders, IssueTimelineService],
-  imports: [CommonModule, TimelineViewRoutingModule]
+  providers: [eventProviders, IssueTimelineService]
 })
 export class TimelineViewModule {}

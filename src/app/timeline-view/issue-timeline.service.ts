@@ -6,6 +6,8 @@ import { map } from 'rxjs/operators';
 import { AbstractEvent } from './event/model/abstract-event.model';
 import { AbstractEventComponent } from './event/abtract-event.component';
 import { EventDefaultComponent } from './event/event-default/event-default.component';
+import { EventName } from './event/model/event-name.enum';
+import { EventProperties } from './event/model/event-properties.model';
 
 @Injectable()
 export class IssueTimelineService {
@@ -18,10 +20,10 @@ export class IssueTimelineService {
     console.log(providedEvents);
   }
 
-  get(issueId: number): Observable<any[]> {
+  get(issueId: number): Observable<AbstractEvent[]> {
     return this.httpClient
-      .get<any[]>(`${this.apiUrl}/${issueId}/timeline`, this.getHttpOptions(this.acceptType))
-      .pipe(map(issueEvents => this.mapToIssueEventItems(issueEvents)));
+      .get<EventProperties[]>(`${this.apiUrl}/${issueId}/timeline`, this.getHttpOptions(this.acceptType))
+      .pipe(map((issueEvents: EventProperties[]) => this.mapToIssueEventItems(issueEvents)));
   }
 
   private getHttpOptions(acceptType: string) {
@@ -32,12 +34,12 @@ export class IssueTimelineService {
     return { headers: new HttpHeaders(headers) };
   }
 
-  private mapToIssueEventItems(issueEvents: any[]): AbstractEvent[] {
-    return Array.from(issueEvents, issueEvent => {
+  private mapToIssueEventItems(gitIssueEvents: EventProperties[]): AbstractEvent[] {
+    return Array.from(gitIssueEvents, gitIssueEvent => {
       return {
-        eventName: issueEvent['event'],
-        component: this.getEventComponent(issueEvent['event']),
-        properties: null
+        eventName: gitIssueEvent.event as EventName,
+        component: this.getEventComponent(gitIssueEvent.event),
+        properties: gitIssueEvent
       };
     });
   }

@@ -1,6 +1,6 @@
 export interface IssueListView {
   id: number;
   title: string;
-  createdAt: Date;
+  createdAt: string;
   author: string;
 }

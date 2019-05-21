@@ -1,0 +1,37 @@
+$backgroundColor: #f6f8fa;
+$borderColor: #d1d5da;
+$padding: 1em;
+$borderRadius: 3px;
+
+$smallFontSize: 12px;
+$grayColorText: #586069;
+
+@mixin border-radius-top($val) {
+  border-top-left-radius: $val;
+  border-top-right-radius: $val;
+}
+
+@mixin border-radius-bottom($val) {
+  border-bottom-left-radius: $val;
+  border-bottom-right-radius: $val;
+}
+
+.comment-container {
+  border: 1px solid $borderColor;
+  @include border-radius-top(3px);
+  @include border-radius-bottom(3px);
+
+  & .comment-title-container {
+    background-color: $backgroundColor;
+    padding: $padding;
+
+    & .username {
+      font-weight: bold;
+    }
+  }
+
+  & .comment-text-container {
+    padding: $padding;
+    border-top: 1px solid $borderColor;
+  }
+}

@@ -1,0 +1,12 @@
+<div class="timeline-item-container">
+  <div class="timeline-item-border">
+    <div class="vertical-border-top"></div>
+    <div class="icon-container"><i class="fa {{ iconClass }} timeline-item-icon"></i></div>
+    <div class="vertical-border-bottom"></div>
+  </div>
+  <div class="timeline-item-content">
+    <span class="username">{{ eventProperties.actor.login }}</span>
+    <ng-content></ng-content>
+    <span>{{ eventProperties.created_at | daysAgo }}</span>
+  </div>
+</div>

@@ -6,8 +6,8 @@ import { PeriodInMinutes } from './period-in-minutes.enum';
   name: 'daysAgo'
 })
 export class DaysAgoPipe implements PipeTransform {
-  transform(datePast: Date, args?: any): string {
-    const minutesAgo: number = this.getMinutesAgo(datePast);
+  transform(datePast: string, args?: any): string {
+    const minutesAgo: number = this.getMinutesAgo(new Date(datePast));
 
     return this.getDisplayMessage(minutesAgo);
   }
