@@ -1,0 +1,16 @@
+<div class="issue-list-container">
+  <div class="issue-list-title-container">
+    <span>Number of issues: {{ issues ? issues.length : 0 }}</span>
+  </div>
+  <ng-container *ngIf="issues">
+    <div *ngFor="let issue of issues; index as i"
+         class="issue-container">
+      <div class="issue-title">
+        <span routerLink="/timeline"
+              [queryParams]="{issue_id: issue.id}">{{ issue.title }}</span>
+      </div>
+      <div class="issue-details">#{{issues.length - i}} opened {{ issue.createdAt | daysAgo }} by {{ issue.author }}
+      </div>
+    </div>
+  </ng-container>
+</div>
