@@ -1,3 +1,7 @@
-<p>
-  issue-timeline-view works!
-</p>
+<ng-container *ngFor="let issueEvent of issueEvents">
+  <div>Event name: {{ issueEvent.eventName }}</div>
+  <ng-container *ngComponentOutlet="issueEvent.component"></ng-container>
+  <br>
+</ng-container>
+
+Timeline works!

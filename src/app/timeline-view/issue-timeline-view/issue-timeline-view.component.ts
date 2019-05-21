@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IssueTimelineService } from '../issue-timeline.service';
+import { AbstractEvent } from '../event/model/abstract-event.model';
 
 @Component({
   selector: 'app-issue-timeline-view',
@@ -9,6 +10,8 @@ import { IssueTimelineService } from '../issue-timeline.service';
   styleUrls: ['./issue-timeline-view.component.scss']
 })
 export class IssueTimelineViewComponent implements OnInit {
+  issueEvents: AbstractEvent[];
+
   constructor(private route: ActivatedRoute, private issueTimelineService: IssueTimelineService) {}
 
   ngOnInit() {
@@ -16,6 +19,9 @@ export class IssueTimelineViewComponent implements OnInit {
   }
 
   private getIssueTimeline(issueId: number) {
-    this.issueTimelineService.get(issueId).subscribe(issueEvents => console.log(issueEvents));
+    this.issueTimelineService.get(issueId).subscribe(issueEvents => {
+      console.log(issueEvents);
+      this.issueEvents = issueEvents;
+    });
   }
 }
