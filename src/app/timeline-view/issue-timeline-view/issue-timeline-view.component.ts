@@ -28,7 +28,6 @@ export class IssueTimelineViewComponent implements OnInit {
 
   private getIssueEvents(issueId: number) {
     this.issueTimelineService.get(issueId).subscribe(issueEvents => {
-      console.log(issueEvents);
       this.issueEvents = issueEvents;
     });
   }

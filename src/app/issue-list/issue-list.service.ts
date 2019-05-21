@@ -5,15 +5,14 @@ import { map } from 'rxjs/operators';
 
 import { IssueListView } from './issue-list-view.model';
 import { GitIssue } from './git-issue.model';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable()
 export class IssueListService {
-  private apiUrl = 'github/repos/bulbtech/job-application-task-1/issues';
-
   constructor(private httpClient: HttpClient) {}
 
   getAll(): Observable<IssueListView[]> {
-    return this.httpClient.get<GitIssue[]>(this.apiUrl).pipe(map((issues: GitIssue[]) => this.mapToIssueListViewItems(issues)));
+    return this.httpClient.get<GitIssue[]>(environment.baseUrl).pipe(map((issues: GitIssue[]) => this.mapToIssueListViewItems(issues)));
   }
 
   private mapToIssueListViewItems(gitIssues: GitIssue[]): IssueListView[] {

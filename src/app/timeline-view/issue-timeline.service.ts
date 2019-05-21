@@ -8,21 +8,17 @@ import { AbstractEventComponent } from './event/abtract-event.component';
 import { EventDefaultComponent } from './event/event-default/event-default.component';
 import { EventName } from './event/model/event-name.enum';
 import { EventProperties } from './event/model/event-properties.model';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable()
 export class IssueTimelineService {
-  private apiUrl = 'github/repos/bulbtech/job-application-task-1/issues';
-
   private acceptType = 'application/vnd.github.mockingbird-preview';
 
-  constructor(private httpClient: HttpClient, @Inject(AbstractEvent) private providedEvents: AbstractEvent[]) {
-    console.log('Event providers:');
-    console.log(providedEvents);
-  }
+  constructor(private httpClient: HttpClient, @Inject(AbstractEvent) private providedEvents: AbstractEvent[]) {}
 
   get(issueId: number): Observable<AbstractEvent[]> {
     return this.httpClient
-      .get<EventProperties[]>(`${this.apiUrl}/${issueId}/timeline`, this.getHttpOptions(this.acceptType))
+      .get<EventProperties[]>(`${environment.baseUrl}/${issueId}/timeline`, this.getHttpOptions(this.acceptType))
       .pipe(map((issueEvents: EventProperties[]) => this.mapToIssueEventItems(issueEvents)));
   }
 

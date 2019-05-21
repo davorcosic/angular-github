@@ -8,10 +8,7 @@ import { EventProperties } from '../model/event-properties.model';
   styleUrls: ['./event-commented.component.scss']
 })
 export class EventCommentedComponent implements OnInit {
-  constructor(public eventProperties: EventProperties) {
-    console.log('EventCommentedComponent');
-    console.log(eventProperties);
-  }
+  constructor(public eventProperties: EventProperties) {}
 
   ngOnInit() {}
 }
