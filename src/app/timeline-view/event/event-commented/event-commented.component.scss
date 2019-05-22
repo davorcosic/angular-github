@@ -16,6 +16,12 @@ $grayColorText: #586069;
   border-bottom-right-radius: $val;
 }
 
+.vertical-border-top {
+  border-left: 4px solid $borderColor;
+  height: 1em;
+  margin-left: calc(1em - 2px);
+}
+
 .comment-container {
   border: 1px solid $borderColor;
   @include border-radius-top(3px);
@@ -34,4 +40,10 @@ $grayColorText: #586069;
     padding: $padding;
     border-top: 1px solid $borderColor;
   }
+}
+
+.vertical-border-bottom {
+  border-left: 4px solid $borderColor;
+  height: 1em;
+  margin-left: calc(1em - 2px);
 }

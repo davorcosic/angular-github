@@ -8,7 +8,7 @@ import { AbstractEventComponent } from './event/abtract-event.component';
 import { EventDefaultComponent } from './event/event-default/event-default.component';
 import { EventName } from './event/model/event-name.enum';
 import { EventProperties } from './event/model/event-properties.model';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class IssueTimelineService {

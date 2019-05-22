@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { IssueListView } from './issue-list-view.model';
 import { GitIssue } from './git-issue.model';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class IssueListService {
