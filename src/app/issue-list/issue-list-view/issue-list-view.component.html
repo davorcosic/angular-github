@@ -1,5 +1,6 @@
 <app-paginator *ngIf="issuePaginationLinks"
                [disable]="loading"
+               [currentPage]="currentPage"
                [linkHeader]="issuePaginationLinks"
                (paginate)="loadIssues($event)"></app-paginator>
 
@@ -16,7 +17,7 @@
          class="issue-container">
       <div class="issue-title">
         <span routerLink="/timeline"
-              [queryParams]="{issue_id: issue.id}">{{ issue.title }}</span>
+              [queryParams]="{issue_id: issue.id, page: currentPage}">{{ issue.title }}</span>
       </div>
       <div class="issue-details">#{{issues.length - i}} opened {{ issue.createdAt | daysAgo }} by {{ issue.author }}
       </div>

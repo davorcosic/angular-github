@@ -22,12 +22,13 @@ export class PaginatorComponent implements OnInit, OnChanges {
   @Input()
   linkHeader: string;
 
+  @Input()
+  currentPage: number;
+
   @Output()
   paginate: EventEmitter<number> = new EventEmitter();
 
   pageNumbers: number[];
-
-  currentPage = 1;
 
   lastPage: number;
 
@@ -66,6 +67,16 @@ export class PaginatorComponent implements OnInit, OnChanges {
     for (const linkRel of linkRels) {
       if (linkRel.rel.includes('last')) {
         this.lastPage = +linkRel.link.split('page=')[1];
+      }
+    }
+
+    // This use case is present only if last page was loaded
+    // Links that are retrieved in this case are "first" and "prev", therefore, last page is "prev" + 1
+    if (!this.lastPage) {
+      for (const linkRel of linkRels) {
+        if (linkRel.rel.includes('prev')) {
+          this.lastPage = +linkRel.link.split('page=')[1] + 1;
+        }
       }
     }
   }

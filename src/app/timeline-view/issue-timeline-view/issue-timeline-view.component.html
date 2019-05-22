@@ -1,5 +1,6 @@
 <div class="return-btn-container"><button type="button"
-          routerLink="/">BACK TO LIST</button></div>
+          routerLink="/"
+          [queryParams]="{ page: issueListPage }">BACK TO LIST</button></div>
 <div *ngIf="issueEvents"
      class="timeline-container">
   <ng-container *ngFor="let issueEvent of issueEvents">

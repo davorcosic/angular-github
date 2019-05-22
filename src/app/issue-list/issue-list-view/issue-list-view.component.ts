@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { IssueListService } from '../issue-list.service';
 import { IssueListView } from '../issue-list-view.model';
@@ -16,13 +17,16 @@ export class IssueListViewComponent implements OnInit {
 
   loading: boolean;
 
-  constructor(private issueListService: IssueListService) {}
+  currentPage: number;
+
+  constructor(private issueListService: IssueListService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.loadIssues(1);
+    this.loadIssues(this.getPageNumber());
   }
 
   loadIssues(pageNumber: number) {
+    this.currentPage = pageNumber;
     this.loading = true;
 
     this.issueListService.getPage(pageNumber).subscribe(
@@ -36,5 +40,15 @@ export class IssueListViewComponent implements OnInit {
         throw error;
       }
     );
+  }
+
+  private getPageNumber(): number {
+    const pageNumber: string = this.route.snapshot.queryParamMap.get('page');
+
+    if (!pageNumber || isNaN(+pageNumber)) {
+      return 1;
+    }
+
+    return +pageNumber;
   }
 }

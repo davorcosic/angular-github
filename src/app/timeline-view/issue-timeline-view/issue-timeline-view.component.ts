@@ -14,10 +14,13 @@ import { EventName } from '../event/model/event-name.enum';
 export class IssueTimelineViewComponent implements OnInit {
   issueEvents: AbstractEvent[];
 
+  issueListPage: number;
+
   constructor(private route: ActivatedRoute, private injector: Injector) {}
 
   ngOnInit() {
     this.issueEvents = this.route.snapshot.data['issueEvents'];
+    this.issueListPage = +this.route.snapshot.queryParamMap.get('page');
   }
 
   createEventPropertiesInjector(eventProperties: EventProperties): Injector {

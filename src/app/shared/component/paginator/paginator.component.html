@@ -10,6 +10,7 @@
 
     <ng-container *ngFor="let pageNumber of pageNumbers">
       <button type="button"
+              [ngClass]="{'selected-page-btn': pageNumber === currentPage}"
               [disabled]="disable"
               (click)="emitPaginate(pageNumber)">{{ pageNumber }}</button>
     </ng-container>
