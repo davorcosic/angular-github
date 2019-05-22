@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TimelineViewRoutingModule } from './timeline-view-routing.module';
@@ -9,6 +9,7 @@ import { EventLabeledComponent } from './event/event-labeled/event-labeled.compo
 import { EventDefaultComponent } from './event/event-default/event-default.component';
 import { eventProviders } from './event/event-providers';
 import { SharedModule } from '../shared/shared.module';
+import { EventName } from './event/model/event-name.enum';
 
 @NgModule({
   imports: [CommonModule, TimelineViewRoutingModule, SharedModule],
@@ -16,4 +17,11 @@ import { SharedModule } from '../shared/shared.module';
   entryComponents: [EventCommentedComponent, EventLabeledComponent, EventDefaultComponent],
   providers: [eventProviders, IssueTimelineService]
 })
-export class TimelineViewModule {}
+export class TimelineViewModule {
+  static forFeature(excludeEventsFromView?: Array<EventName>): ModuleWithProviders {
+    return {
+      ngModule: TimelineViewModule,
+      providers: [{ provide: EventName, useValue: excludeEventsFromView }]
+    };
+  }
+}
