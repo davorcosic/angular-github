@@ -1,6 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { PeriodInMinutes } from './period-in-minutes.enum';
+const PeriodInMinutes = {
+  day: 1440,
+  hour: 60,
+  minute: 1
+};
 
 @Pipe({
   name: 'daysAgo'

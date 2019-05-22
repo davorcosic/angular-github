@@ -19,7 +19,8 @@
         <span routerLink="/timeline"
               [queryParams]="{issue_id: issue.id, page: currentPage}">{{ issue.title }}</span>
       </div>
-      <div class="issue-details">#{{issues.length - i}} opened {{ issue.createdAt | daysAgo }} by {{ issue.author }}
+      <div class="issue-details">#{{issues.length - i}} opened {{ issue.createdAt | daysAgo }} by
+        {{ issue.author }}
       </div>
     </div>
   </ng-container>

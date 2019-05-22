@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { AbstractEvent } from './event/model/abstract-event.model';
-import { AbstractEventComponent } from './event/abtract-event.component';
 import { EventDefaultComponent } from './event/event-default/event-default.component';
 import { EventName } from './event/model/event-name.enum';
 import { EventProperties } from './event/model/event-properties.model';
@@ -40,7 +39,7 @@ export class IssueTimelineService {
     });
   }
 
-  private getEventComponent(eventName: string): Type<AbstractEventComponent> {
+  private getEventComponent(eventName: string): Type<any> {
     const event: AbstractEvent = this.providedEvents.find((providedEvent: AbstractEvent) => providedEvent.eventName === eventName);
 
     if (event) {

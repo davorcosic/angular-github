@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  accessToken: 'fcf201961afa52f95cc16b5f2fd84fcfa4150166'
-  baseUrl: 'github/repos/bulbtech/job-application-task-1/issues'
+  // baseUrl: 'github/repos/primefaces/primeng/issues',
+  baseUrl: 'github/repos/bulbtech/job-application-task-1/issues',
+  accessToken: '089ef3a73755f7bcc469eb5aa57050ec34ad6020'
 };
 
 /*
