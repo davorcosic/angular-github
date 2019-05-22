@@ -5,7 +5,7 @@
     <div class="vertical-border-bottom"></div>
   </div>
   <div class="timeline-item-content">
-    <span class="username">{{ eventProperties.actor.login }}</span>
+    <span class="username">{{ eventProperties.actor?.login }}</span>
     <ng-content></ng-content>
     <span>{{ eventProperties.created_at | daysAgo }}</span>
   </div>

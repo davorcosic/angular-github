@@ -1,0 +1,27 @@
+<div class="paginator">
+  <div class="paginator-container">
+    <button type="button"
+            [disabled]="disable || (currentPage === 1)"
+            (click)="emitPaginate(1)"><i class="fa fa-angle-double-left"></i></button>
+
+    <button type="button"
+            [disabled]="disable || (currentPage === 1)"
+            (click)="emitPaginate(currentPage-1)"><i class="fa fa-angle-left"></i></button>
+
+    <ng-container *ngFor="let pageNumber of pageNumbers">
+      <button type="button"
+              [disabled]="disable"
+              (click)="emitPaginate(pageNumber)">{{ pageNumber }}</button>
+    </ng-container>
+
+    <button type="button"
+            [disabled]="disable || (currentPage === lastPage)"
+            (click)="emitPaginate(currentPage+1)"><i class="fa fa-angle-right"></i></button>
+
+    <button type="button"
+            [disabled]="disable || (currentPage === lastPage)"
+            (click)="emitPaginate(lastPage)"><i class="fa fa-angle-double-right"></i></button>
+  </div>
+  <div class="pages-container">Page: {{ currentPage }}/{{ lastPage }}</div>
+
+</div>

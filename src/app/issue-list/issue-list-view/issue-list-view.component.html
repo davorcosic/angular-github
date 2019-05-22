@@ -1,4 +1,13 @@
-<div class="issue-list-container">
+<app-paginator *ngIf="issuePaginationLinks"
+               [disable]="loading"
+               [linkHeader]="issuePaginationLinks"
+               (paginate)="loadIssues($event)"></app-paginator>
+
+<div *ngIf="loading"
+     class="spinner-container"><img src="assets/loader.gif"></div>
+
+<div *ngIf="!loading"
+     class="issue-list-container">
   <div class="issue-list-title-container">
     <span>Number of issues: {{ issues ? issues.length : 0 }}</span>
   </div>

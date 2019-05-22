@@ -1,0 +1,34 @@
+$backgroundColor: #f6f8fa;
+$borderColor: #d1d5da;
+
+.paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & .paginator-container {
+    display: inline-block;
+
+    & button {
+      background-color: $backgroundColor;
+      border: 1px solid $borderColor;
+      height: 2em;
+      width: 2em;
+      cursor: pointer;
+    }
+
+    :not(:first-child) {
+      border-left: none;
+    }
+
+    & .selected-page-btn {
+      background-color: blue;
+      color: white;
+    }
+  }
+
+  & .pages-container {
+    margin-left: 1em;
+    display: inline-block;
+  }
+}
