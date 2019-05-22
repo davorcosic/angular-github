@@ -4,7 +4,9 @@
       <h1 class="app-title">Angular GitHub Project</h1>
     </div>
     <div class="outlet-container">
-      <router-outlet></router-outlet>
+      <div *ngIf="loading"
+           class="spinner-container"><img src="assets/loader.gif"></div>
+      <router-outlet *ngIf="!loading"></router-outlet>
     </div>
   </div>
 </div>

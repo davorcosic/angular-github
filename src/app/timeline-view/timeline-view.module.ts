@@ -10,12 +10,13 @@ import { EventDefaultComponent } from './event/event-default/event-default.compo
 import { eventProviders } from './event/event-providers';
 import { SharedModule } from '../shared/shared.module';
 import { EventName } from './event/model/event-name.enum';
+import { TimelineResolverService } from './timeline-resolver.service';
 
 @NgModule({
   imports: [CommonModule, TimelineViewRoutingModule, SharedModule],
   declarations: [IssueTimelineViewComponent, EventCommentedComponent, EventLabeledComponent, EventDefaultComponent],
   entryComponents: [EventCommentedComponent, EventLabeledComponent, EventDefaultComponent],
-  providers: [eventProviders, IssueTimelineService]
+  providers: [eventProviders, IssueTimelineService, TimelineResolverService]
 })
 export class TimelineViewModule {
   static forFeature(excludeEventsFromView?: Array<EventName>): ModuleWithProviders {

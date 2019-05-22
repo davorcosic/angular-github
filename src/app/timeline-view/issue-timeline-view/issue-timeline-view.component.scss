@@ -1,3 +1,23 @@
+$backgroundColor: #f6f8fa;
+$borderColor: #d1d5da;
+
+.return-btn-container {
+  margin: 1em;
+  margin-left: 0;
+}
+
+button {
+  background-color: $backgroundColor;
+  border: 1px solid $borderColor;
+  height: 2em;
+  cursor: pointer;
+}
+
+.timeline-container {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 .no-events-msg {
   text-align: center;
 }

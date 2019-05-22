@@ -14,44 +14,16 @@ import { EventName } from '../event/model/event-name.enum';
 export class IssueTimelineViewComponent implements OnInit {
   issueEvents: AbstractEvent[];
 
-  constructor(
-    private route: ActivatedRoute,
-    private issueTimelineService: IssueTimelineService,
-    private injector: Injector,
-    @Inject(EventName) private excludedEventsFromView: EventName[]
-  ) {}
+  constructor(private route: ActivatedRoute, private injector: Injector) {}
 
   ngOnInit() {
-    this.route.queryParamMap.subscribe(queryParamMap => this.getIssueEvents(+queryParamMap.get('issue_id')));
+    this.issueEvents = this.route.snapshot.data['issueEvents'];
   }
 
   createEventPropertiesInjector(eventProperties: EventProperties): Injector {
     return Injector.create({
       providers: [{ provide: EventProperties, useValue: eventProperties }],
       parent: this.injector
-    });
-  }
-
-  private getIssueEvents(issueId: number) {
-    this.issueTimelineService.get(issueId).subscribe((issueEvents: AbstractEvent[]) => {
-      this.issueEvents = this.filterExcludedEvents(issueEvents);
-    });
-  }
-
-  /**
-   * If no events to exclude are provided, issue events are returned as is.
-   * If events to exclude are provided, issue events that are not included in the array of event names are returned.
-   *
-   * @param issueEvents issue events fetched from API
-   *
-   */
-  private filterExcludedEvents(issueEvents: AbstractEvent[]) {
-    if (!(this.excludedEventsFromView && this.excludedEventsFromView.length)) {
-      return issueEvents;
-    }
-
-    return issueEvents.filter((issueEvent: AbstractEvent) => {
-      return !this.excludedEventsFromView.includes(issueEvent.eventName);
     });
   }
 }
